@@ -1,0 +1,6 @@
+services:
+  detector:
+    build: .
+    volumes:
+      - ./data:/app/data
+    command: ["data/video.mp4"] # Сюда потом подставлю путь к видео
