@@ -1,0 +1,15 @@
+[project]
+name = "license-plate-detector"
+version = "0.1.0"
+description = "YOLO based ALPR system"
+authors = [{name = "Anastasia Pancheva"}]
+dependencies = [
+    "ultralytics",
+    "opencv-python",
+    "loguru",
+    "pyyaml"
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
