@@ -10,6 +10,9 @@ dependencies = [
     "pyyaml"
 ]
 
+[tool.poetry]
+packages = [{include = "src"}]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
