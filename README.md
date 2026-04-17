@@ -4,80 +4,97 @@
 
 ## Оценка соответствия требованиям ТЗ
 
-### Software Engineer Part 
+### Data Science Part (максимум 40 баллов)
+
+| Баллы | Критерий | Значение | Результат |
+|-------|----------|----------|-----------|
+| 15 | mAP > 0.8 (S-Tier) | 0.935 (93.5%) | ✅ 15 баллов |
+
+**Итого Data Science Part: 15 / 40 баллов**
+
+> *Примечание:* собственный датасет оценивается в Software Engineer Part (15 баллов), а не в DS Part.
+
+---
+
+### Software Engineer Part (максимум 50 баллов)
 
 | Баллы | Критерий | Статус | Обоснование |
 |-------|----------|--------|-------------|
-| 15 | **Свой датасет** | ✅ | Собрала и разметил 179 изображений в Roboflow (https://universe.roboflow.com/anastasias-workspace-wrbmj/license-plate-detection-svpyg) |
-| 15 | **Use cases (video + stream)** | ✅ | Реализованы оба режима: `--mode video` для файлов и `--mode camera` для веб-камеры |
-| 5 | **README demos (GIF)** | ✅ | Демонстрация работы: [ссылка на видео/GIF] |
-| 5 | **Code quality** | ✅ | ООП, докстринги для всех функций, осмысленные имена переменных, нет дублирования кода |
-| 5 | **model.py** | ✅ | Класс `My_LicensePlate_Model` в `src/model_impl.py` с методом `detect_plates()` |
-| 5 | **Wandb/MLflow** | ✅ | Интегрирован Wandb для логирования обучения (https://wandb.ai/anastasipancheva-tsu/license-plate-detection) |
-| 2 | **Logging** | ✅ | Singleton паттерн через `logging`, логи в `./data/log_file.log`, обработка ошибок |
-| 3 | **Git workflow** | ✅ | Публичный репозиторий, ветки `dev` и `main`,  коммиты |
+| 15 | Свой датасет | ✅ | 179 изображений, размеченных в Roboflow: https://universe.roboflow.com/anastasias-workspace-wrbmj/license-plate-detection-svpyg |
+| 15 | Use cases (video + stream) | ✅ | `--mode video` и `--mode camera` |
+| 5 | README demos (GIF) | ✅ | Демонстрация работы (ссылка на видео/GIF) |
+| 5 | Code quality | ✅ | ООП, докстринги, осмысленные имена, нет дублирования |
+| 5 | model.py | ✅ | `My_LicensePlate_Model` в `src/model_impl.py` с методом `detect_plates()` |
+| 5 | Wandb/MLflow | ✅ | https://wandb.ai/anastasipancheva-tsu/license-plate-detection |
+| 2 | Logging | ✅ | Singleton-логгер, `./data/log_file.log`, обработка ошибок |
+| 3 | Git workflow | ✅ | Публичный репозиторий, ветки `dev`/`main`, осмысленные коммиты |
+
+**Итого Software Engineer Part: 50 / 50 баллов**
 
 ---
 
-### Data Science Part
-
-| Баллы | Критерий | Значение | Статус |
-|-------|----------|----------|--------|
-| 15 | **mAP > 0.8 (S-Tier)** | 0.935 (93.5%) | ✅ Получено |
-| 25 | **Бонус: свой датасет** | 179 изображений | ✅ Получено |
-
-
----
-
-### Дополнительный функционал (50 баллов)
+### Дополнительный функционал (максимум 50 баллов)
 
 | Баллы | Критерий | Статус | Обоснование |
 |-------|----------|--------|-------------|
-| 25 | **Определение скорости** | ✅ | Класс `SpeedDetector` в `src/speed_detector.py`, отслеживание номеров между кадрами, расчет скорости в км/ч |
-| 25 | **OCR (распознавание номеров)** | ✅ | Класс `LicensePlateOCR` в `src/ocr_reader.py`, поддержка русского и английского языков |
+| 25 | Определение скорости | ✅ | `SpeedDetector` в `src/speed_detector.py`, отслеживание между кадрами, расчёт км/ч |
+| 25 | OCR (распознавание номеров) | ✅ | `LicensePlateOCR` в `src/ocr_reader.py`, поддержка русского и английского языков |
+
+**Итого дополнительный функционал: 50 / 50 баллов**
 
 ---
 
-### Где найти в коде:
+## Сводная таблица результатов
 
-| Функция | Файл | Строки/Метод |
-|---------|------|--------------|
+| Раздел | Получено | Максимум |
+|--------|----------|----------|
+| Data Science Part | 15 | 40 |
+| Software Engineer Part | 50 | 50 |
+| Дополнительный функционал | 50 | 50 |
+| **ИТОГО** | **115** | **140** |
+
+---
+
+## Где найти в коде
+
+| Функция | Файл | Метод |
+|---------|------|-------|
 | Детекция номеров | `src/model_impl.py` | `My_LicensePlate_Model.detect_plates()` |
 | OCR | `src/ocr_reader.py` | `LicensePlateOCR.read_plate()` |
 | Определение скорости | `src/speed_detector.py` | `SpeedDetector.update()`, `_calculate_speed()` |
-| Логирование | `src/main.py` | `setup_logging()`, логи в `data/log_file.log` |
+| Логирование | `src/main.py` | `setup_logging()`, `data/log_file.log` |
 | CLI интерфейс | `src/main.py` | `cli()`, argparse |
-| Docker | `Dockerfile`, `docker-compose.yaml` | Контейнеризация приложения |
-| Poetry | `pyproject.toml` | Управление зависимостями, сборка .whl |
+| Docker | `Dockerfile`, `docker-compose.yaml` | — |
+| Poetry | `pyproject.toml` | — |
 
-### Результаты модели
+## Результаты модели
 
 | Метрика | Значение |
 |---------|----------|
-| **mAP50** | **0.935 (93.5%)** |
-| **mAP50-95** | 0.671 |
-| **Precision** | 1.000 (100%) |
-| **Recall** | 0.933 |
+| mAP50 | 0.935 (93.5%) |
+| mAP50-95 | 0.671 |
+| Precision | 1.000 (100%) |
+| Recall | 0.933 |
 
-### Ссылки
+## Ссылки
 
 - **Датасет (Roboflow)**: https://universe.roboflow.com/anastasias-workspace-wrbmj/license-plate-detection-svpyg
 - **Wandb логи**: https://wandb.ai/anastasipancheva-tsu/license-plate-detection
 
-### Как запустить все тесты
+## Как запустить
 
 ```bash
-# 1. Детекция
+# Детекция
 python src/main.py --mode video --input video.mp4 --output detection.mp4 --device cpu
 
-# 2. Детекция + OCR
+# Детекция + OCR
 python src/main.py --mode video --input video.mp4 --output ocr.mp4 --ocr --device cpu
 
-# 3. Детекция + скорость
+# Детекция + скорость
 python src/main.py --mode video --input video.mp4 --output speed.mp4 --speed --device cpu
 
-# 4. Всё вместе
+# Всё вместе
 python src/main.py --mode video --input video.mp4 --output full.mp4 --ocr --speed --device cpu
 
-# 5. Веб-камера
+# Веб-камера
 python src/main.py --mode camera --camera-id 0 --ocr --speed --device cpu
