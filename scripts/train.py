@@ -217,7 +217,7 @@ def train_model(
 def validate_model(
     model_path: str,
     data_yaml: str,
-    device: str = 'cuda',
+    device: str = 'cpu', 
     conf_threshold: float = 0.25,
     iou_threshold: float = 0.45
 ):

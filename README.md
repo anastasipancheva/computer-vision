@@ -13,7 +13,7 @@
 | 5 | **README demos (GIF)** | ✅ | Демонстрация работы: [ссылка на видео/GIF] |
 | 5 | **Code quality** | ✅ | ООП, докстринги для всех функций, осмысленные имена переменных, нет дублирования кода |
 | 5 | **model.py** | ✅ | Класс `My_LicensePlate_Model` в `src/model_impl.py` с методом `detect_plates()` |
-| 5 | **Wandb/MLflow** | ✅ | Интегрирован Wandb для логирования обучения (https://wandb.ai/...) |
+| 5 | **Wandb/MLflow** | ✅ | Интегрирован Wandb для логирования обучения (https://wandb.ai/anastasipancheva-tsu/license-plate-detection) |
 | 2 | **Logging** | ✅ | Singleton паттерн через `logging`, логи в `./data/log_file.log`, обработка ошибок |
 | 3 | **Git workflow** | ✅ | Публичный репозиторий, ветки `dev` и `main`,  коммиты |
 
@@ -26,7 +26,6 @@
 | 15 | **mAP > 0.8 (S-Tier)** | 0.935 (93.5%) | ✅ Получено |
 | 25 | **Бонус: свой датасет** | 179 изображений | ✅ Получено |
 
-**Итого Data Science Part: 40/40 баллов ✅**
 
 ---
 
